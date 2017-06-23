@@ -7,7 +7,7 @@
       </div>
     </div>
 
-  <div class="col-md-7">
+  <div class="col-md-8">
       <button type="button" class="btn btn-danger" ng-click="edit({});"><i class="fa fa-plus"></i>&nbsp;Add New</button>
       <button type="submit" class="btn btn-info" ng-click="save(product);"><i class="fa fa-save"></i> &nbsp;Save</button>
       &nbsp;&nbsp;<a ui-sref="productDetail({id:product._id, slug:product.slug})">{{product.name}}</a>
@@ -180,6 +180,7 @@
             <th>Price</th>
             <th>Image</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -189,8 +190,35 @@
             <td><input type="text" ng-model="p.size" style="width:70px;" placeholder="Size"/></td>
             <td><input type="text" ng-model="p.weight" style="width:70px;" placeholder="Weight"/></td>
             <td><input type="text" ng-model="p.mrp" style="width:70px;" placeholder="MRP"/></td>
-            <td><input type="text" ng-model="p.price" style="width:70px;" placeholder="Price"/></td>
-            <td><input type="text" ng-model="p.image" style="width:150px;" placeholder="Image"/></td>
+            <td><input type="number" ng-model="p.price" style="width:70px;" placeholder="Price"/></td>
+            <!--<td>-->
+                <!--<input type="file" ng-model="p.image" file-upload style="width:150px;" placeholder="Image"/>-->
+                <!--&lt;!&ndash;<button ng-click = "uploadFile()">Upload</button>&ndash;&gt;-->
+            <!--</td>-->
+            <td><span style="width:70px;">{{::p.image}}</span></td>
+            <td>
+                <!--<input type="file" ng-model="p.imageObject" placeholder="Image"/>-->
+                <!--<button class="btn btn-sm" ng-click="uploadFile()">-->
+                    <!--<span class="glyphicon glyphicon-download"></span>-->
+                <!--</button>-->
+
+                <div class="input-group input-group-sm">
+                    <file-upload></file-upload>
+                </div>
+
+                <!--<div class="input-group input-group-sm">-->
+                    <!--<input type="file" ng-model="p.imageObject" file-upload style="width:170px;" placeholder="Image">-->
+                    <!--<span class="input-group-btn">-->
+                        <!--<button class="btn btn-default" type="button" ng-click="onUpload()">-->
+                            <!--<span class="glyphicon glyphicon-download"></span>-->
+                        <!--</button>-->
+                    <!--</span>-->
+                <!--</div>-->
+
+
+                <!--<input type="text" ng-model="p.image" style="width:150px;" placeholder="Image"/>-->
+                <!--image={{p.image}}-->
+            </td>
             <td>
                 <div class="btn-group">
                   <button type="button" class="btn btn-danger" ng-click="deleteVariants($index,product);"><i class="fa fa-trash-o"></i></button>
@@ -203,8 +231,8 @@
             <td><input type="text" ng-model="variant.size" style="width:70px;" placeholder="Size"/></td>
             <td><input type="text" ng-model="variant.weight" style="width:70px;" placeholder="Weight"/></td>
             <td><input type="text" ng-model="variant.mrp" style="width:70px;" placeholder="MRP"/></td>
-            <td><input type="text" ng-model="variant.price" style="width:70px;" placeholder="Price"/></td>
-            <td><input type="text" ng-model="variant.image" style="width:150px;" placeholder="Image"/></td>
+            <td><input type="number" ng-model="variant.price" style="width:70px;" placeholder="Price"/></td>
+            <td><input type="file" ng-model="variant.image" style="width:150px;" placeholder="Image"/></td>
             <td>
 
             </td>
@@ -221,7 +249,7 @@
 </div>
 </div>
 
-<div class="col-md-5">
+<div class="col-md-4">
 <div class="panel panel-primary">
   <div class="panel-heading">List of products
       <div class="sw-search" >

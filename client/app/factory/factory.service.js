@@ -16,14 +16,12 @@ angular.module('ecomApp')
     obj.count = $resource('/api/products/count', null, {'update': { method:'PUT' }});
     return obj;
   }])
-
   .factory('Shipping', ['$resource', function($resource) {
     var obj = {};
     obj = $resource('/api/shippings/:id', null, {'update': { method:'PUT' } });
     obj.best = $resource('/api/shippings/best', null, {'update': { method:'PUT' }});
     return obj;
   }])
-
   .factory('SortOptions', [function() {
     var obj = {};
     obj.server= [

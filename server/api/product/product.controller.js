@@ -30,7 +30,7 @@ exports.index = function (req, res) {
   if (req.query) {
     // console.log(req.query,req.query.skip,req.query.limit,req.query.sort);
     var q = isJson(req.query.where);
-    console.log(q);
+    console.log('req.query.where=',q);
     var sort = isJson(req.query.sort);
     var select = isJson(req.query.select);
     console.log(select);
@@ -119,10 +119,11 @@ exports.update = function (req, res) {
     product.features = req.body.features;
     product.keyFeatures = req.body.keyFeatures;
 
-    _.forEach(product.variants, function (item) {
-      item.price = (+item.price);
-    });
-    console.log(product.variants);
+    // _.forEach(product.variants, function (item) {
+    //   item.price = (+item.price);
+    // });
+
+    console.log('req.body.variants=', req.body.variants);
 
     var updated = _.extend(product, req.body);
     updated.save(function (err) {

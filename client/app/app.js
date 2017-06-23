@@ -15,16 +15,15 @@ angular.module('ecomApp', [
   'infinite-scroll',
   'darthwade.dwLoading',
   'angularMoment',
-  'ui.select'
+  'ui.select',
+  'ui.uploader'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
       .otherwise('/');
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
-  })
-
-  .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
+  }).factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
       // Add authorization token to headers
       request: function (config) {
